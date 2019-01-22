@@ -22,12 +22,13 @@ greet();
 
 // code example for Implicit Binding
 const animal = {
-    type: 'Cats',
+    type: 'cats',
     activity: 'sleep',
     hobby: function() {
-        console.log(`${this.type} favorites hobby is to ${this.activity}!`);
+        console.log(`A ${this.type} favorite hobby is to ${this.activity}!`);
     }
 }
+animal.hobby();
 
 // Principle 3
 

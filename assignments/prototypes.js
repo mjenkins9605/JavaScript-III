@@ -35,6 +35,9 @@ function CharacterStats(charStat){
   this.name = charStat.name;
   this.takeDamage = charStat.takeDamage;
 }
+CharacterStats.prototype.takeDamage = function() {
+  console.log(`${this.name} took damage.`);
+};
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -47,17 +50,15 @@ function CharacterStats(charStat){
 */
 
 function Humanoid(attr){
-  GameObject.call(this.destroy, attr);
   CharacterStats.call(this, attr);
   this.team = attr.team;
   this.weapons = attr.weapons;
   this.language = attr.language;
-  this.greet = attr.greet;
+  this.greet = function() {
+    console.log(`${this.name} offers a greeting in ${this.language}`);
+  }
 }
 
-GameObject.prototype.speak = function() {
-  console.log(`${this.name} offers a greeting in ${this.language}`);
-}
  
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid

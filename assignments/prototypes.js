@@ -30,7 +30,7 @@ function GameObject(gO){
 */
 
 function CharacterStats(charStat){
-  GameObject.call(this.destroy, charStat);
+  GameObject.call(this, charStat);
   this.healthPoints = charStat.healthPoints;
   this.name = charStat.name;
   this.takeDamage = charStat.takeDamage;
@@ -48,7 +48,7 @@ function CharacterStats(charStat){
 
 function Humanoid(attr){
   GameObject.call(this.destroy, attr);
-  CharacterStats.call(this.takeDamage, attr);
+  CharacterStats.call(this, attr);
   this.team = attr.team;
   this.weapons = attr.weapons;
   this.language = attr.language;
@@ -67,7 +67,7 @@ GameObject.prototype.speak = function() {
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
-/*
+
   const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
@@ -128,7 +128,7 @@ GameObject.prototype.speak = function() {
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-*/
+
 
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
